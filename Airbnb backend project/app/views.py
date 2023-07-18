@@ -5,7 +5,7 @@ from .models import Reservation, Accommodation
 from .forms import new_a, log_in, sign_up
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -17,10 +17,11 @@ def new_reservation(request):
     if request.method == "POST":
         arrival = request.POST.get('arrival')
         departure = request.POST.get('departure')
-        #hacer logica para que desde todos los hoteles se pueda hacer la reservacion de cada lugar
+        # hacer logica para que desde todos los hoteles se pueda hacer la reservacion de cada lugar
+        user = request.user
         accommodation = Accommodation.objects.filter(ids=1)
         new_res = Reservation(
-            arrival=arrival, departure=departure, accommodations=accommodation, user=)
+            arrival=arrival, departure=departure, accommodations=accommodation, user=user)
         if new_res:
             new_res.save()
             return HttpResponse("your reservation was sucessfully saved")
@@ -124,3 +125,16 @@ def my_hotels(request):
         place_to_delete = Accommodation.objects.filter(ids=place_id)
         place_to_delete.delete()
         return redirect('my_hotels')
+
+
+@login_required
+def profile(request):
+    if request.method == "GET":
+        return render(request, 'profile.html')
+
+
+@login_required
+def sign_out(request):
+    if request.method == "GET":
+        logout(request)
+        return redirect('login')

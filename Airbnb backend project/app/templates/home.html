@@ -25,8 +25,13 @@
             <li>
                 <a href="{% url 'my_hotels' %}">MY HOTELS</a>
             </li>
+            <li>
+                <a href="{% url 'profile' %}">MY PROFILE</a>
+            </li>
         </ul>
     </nav>
+    {% block content %}
+    {% endblock %}
 </body>
 
 </html>

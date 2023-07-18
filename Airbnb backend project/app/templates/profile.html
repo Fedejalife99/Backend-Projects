@@ -11,14 +11,11 @@
     <body>
         {% extends 'home.html' %}
         {% block content %}
-        {% for place in places%}
-            <h2>{{place.name}}<h2>
-            <p>Price:{{place.price}}<p>
-            <p>Location:{{place.location}}<p>
-            <p>Number of rooms:{{place.number_of_rooms}}<p>
-            <p>Number of bedrooms:{{place.number_of_bedrooms}}<p>
-            <img src="{{place.images.url}}">       
-        {% endfor %}
+            <a href='{% url 'logout' %}'>
+                <button>
+                    Logout
+                </button>
+            </a>
         {% endblock %}
         <script src="" async defer></script>
     </body>

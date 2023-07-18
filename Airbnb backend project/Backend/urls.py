@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import new_reservation, new_place, home, register, sign_in, all_hotel, my_hotels
+from app.views import new_reservation, new_place, home, register, sign_in, all_hotel, my_hotels, sign_out, profile
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,11 +24,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home', home, name="home"),
     path('user/reservation', new_reservation, name="newres"),
-    path('', sign_in),
+    path('', sign_in, name="login"),
     path('register', register, name="register"),
     path('addplace', new_place, name="newplace"),
     path('homes', all_hotel, name="hotel"),
-    path('myhotels', my_hotels, name="my_hotels")
+    path('myhotels', my_hotels, name="my_hotels"),
+    path('logout', sign_out, name="logout"),
+    path('profile', profile, name="profile")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

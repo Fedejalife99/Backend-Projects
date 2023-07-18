@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    {% extends 'home.html' %}
+    {% block content %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
@@ -18,6 +20,7 @@
             send
         </button>
     </form>
+    {% endblock %}
     <script src="" async defer></script>
 </body>
 
