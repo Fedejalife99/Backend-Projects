@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'home' %}">HOME</a>
+            </li>
+            <li>
+                <a href="{% url 'newplace' %}">POST YOUR PLACE</a>
+            </li>
+            <li>
+                <a href="{% url 'newres' %}">NEW RESERVATION</a>
+            </li>
+            <li>
+                <a href="{% url 'hotel' %}"> ALL HOTELS</a>
+            </li>
+            <li>
+                <a href="{% url 'my_hotels' %}">MY HOTELS</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>
