@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        {% extends 'home.html' %}
+        {% block content %}
+            {% for reservation in reservations %}
+                {% if reservation in res_with_cal %}
+                    <h1>{{ reservation.accommodation_name}}</h1>
+                    <p>ARRIVAL: {{ reservation.arrival }}</p>
+                    <p>DEPARTURE: {{ reservation.departure }}</p>
+                    {% if reservation in res_to_cancel %}
+                        <form method="post" action="{% url 'delres' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="reservation_id" value="{{ reservation.id}}">
+                            <button>
+                                Cancel reservation
+                            </button>
+                        </form>
+                    {% endif %}
+                {% else %}
+                        <h1>{{ reservation.accommodation_name }}</h1>
+                        <p>ARRIVAL: {{ reservation.arrival }}</p>
+                        <p>DEPARTURE: {{ reservation.departure }}</p>
+                        {% if reservation in res_to_cancel %}
+                            <form method="post" action="{% url 'delres' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="reservation_id" value="{{ reservation.id}}">
+                                <button>
+                                    Cancel reservation
+                                </button>
+                            </form>
+                        {% endif %}
+                        <p>Calificate:</p>
+                        <form method="post">
+                            {% csrf_token %}
+                        <label for="Calification">Calification:</label>
+                            <input type="number" id="Calification" name="Calification" min="1.0" max="5.0" step="0.5">
+                            <input type="hidden" name="place_id" value="{{ reservation.accommodation_id }}">
+                            <input type="hidden" name="reservation_id" value="{{ reservation.id}}">
+                        <label for="Review">Review:</label>
+                            <input type="text" id="review" name="review">
+                        <button>
+                            Send calification
+                        </button>
+                    </form>
+                {% endif %}
+            {% endfor %}
+        {% endblock %}
+        <script src="" async defer></script>
+    </body>
+</html>
+

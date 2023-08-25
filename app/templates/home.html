@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Hotel reservation app/static/styles/style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}">HOME</a>
+                </li>
+                <li>
+                    <a href="{% url 'newplace' %}">POST YOUR PLACE</a>
+                </li>
+                <li>
+                    <a href="{% url 'hotel' %}"> ALL HOTELS</a>
+                </li>
+                <li>
+                    <a href="{% url 'my_hotels' %}">MY HOTELS</a>
+                </li>
+                <li>
+                    <a href="{% url 'profile' %}">MY PROFILE</a>
+                </li>
+                <li>
+                    <a href="{% url 'myres' %}">MY RESERVATIONS</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>
