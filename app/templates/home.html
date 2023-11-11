@@ -5,36 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Hotel reservation app/static/styles/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <title>Home</title>
-</head>
+    </head>
 
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="{% url 'home' %}">HOME</a>
+    <body>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">HOME </a>
                 </li>
-                <li>
-                    <a href="{% url 'newplace' %}">POST YOUR PLACE</a>
+                <li class="nav-item"> 
+                    <a class="nav-link" href="{% url 'newplace' %}">POST YOUR PLACE </a>
                 </li>
-                <li>
-                    <a href="{% url 'hotel' %}"> ALL HOTELS</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'hotel' %}">ALL HOTELS </a>
                 </li>
-                <li>
-                    <a href="{% url 'my_hotels' %}">MY HOTELS</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'my_hotels' %}">MY HOTELS </a>
                 </li>
-                <li>
-                    <a href="{% url 'profile' %}">MY PROFILE</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' %}">MY PROFILE </a>
                 </li>
-                <li>
-                    <a href="{% url 'myres' %}">MY RESERVATIONS</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'myres' %}"> MY RESERVATIONS</a>
                 </li>
             </ul>
-        </nav>
-    </header>
+    </body>
     {% block content %}
     {% endblock %}
-</body>
-
 </html>
+
+
